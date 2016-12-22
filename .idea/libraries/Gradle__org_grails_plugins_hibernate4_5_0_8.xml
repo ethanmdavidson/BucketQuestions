@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.grails.plugins:hibernate4:5.0.8">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.grails.plugins/hibernate4/5.0.8/6cf0f2bac9eaabe6653e3dd25390ecf287977f1f/hibernate4-5.0.8.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.grails.plugins/hibernate4/5.0.8/95e3a8d7609017a82255f37b2464d39cf05c28a0/hibernate4-5.0.8-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

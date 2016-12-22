@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.grails:grails-web-gsp-taglib:3.1.8">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.grails/grails-web-gsp-taglib/3.1.8/d0ec9d8ff398e800f3f8c243b61e80eee56b603c/grails-web-gsp-taglib-3.1.8.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.grails/grails-web-gsp-taglib/3.1.8/5e2285b02a25d0b73f1edd93a2af0c428e053a3a/grails-web-gsp-taglib-3.1.8-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
