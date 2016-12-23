@@ -66,5 +66,5 @@ assets {
     minifyCss = true
 }
 
-task stage(dependsOn: ['build', 'clean'])
+task stage(dependsOn: ['build'])
 build.mustRunAfter clean
