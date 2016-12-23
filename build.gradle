@@ -66,10 +66,6 @@ assets {
     minifyCss = true
 }
 
-task wrapper(type: Wrapper) {
-    gradleVersion = gradleWrapperVersion
-}
-
 task stage() {
     dependsOn clean, war
 }
