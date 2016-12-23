@@ -1,1 +1,1 @@
-web: cd build/libs ; java $JAVA_OPTS -Dgrails.env=prod -jar ../../build/server/webapp-runner-*.jar --expand-war --port $PORT *.war
+web: cd build/libs ; java $JAVA_OPTS -Dgrails.env=prod -jar ../../build/server/webapp-runner.jar --expand-war --port $PORT *.war
