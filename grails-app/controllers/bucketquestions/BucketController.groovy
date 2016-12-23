@@ -5,7 +5,7 @@ import grails.converters.JSON
 class BucketController {
     Random rand = new Random()
 
-    def index(String codeword) {    //TODO: show how many questions are in the bucket
+    def index(String codeword) {
         if(codeword == null || codeword.isEmpty()) {
             //if no codeword is given redirect to main index
             redirect(uri:"/")
@@ -21,20 +21,23 @@ class BucketController {
     }
 
     def addQuestion(){
+        int numQuestions = 0
         boolean success = false
         String codeword = request.JSON["codeword"]
         String questionText = request.JSON["questionText"]
         if(codeword != null && !codeword.isEmpty()
-                && questionText != null && !questionText.isEmpty()
                 && Bucket.countByCodeword(codeword) > 0){
             Bucket b = Bucket.findByCodeword(codeword)
-            Question q = new Question(questionText: questionText)
-            b.addToQuestions(q)
-            b.save()
+            if(questionText != null && !questionText.isEmpty()) {
+                Question q = new Question(questionText: questionText)
+                b.addToQuestions(q)
+                b.save()
+            }
+            numQuestions = b.questions.size()
             success = true
         }
 
-        def responseData = ['success': success]
+        def responseData = ['success': success, 'questionCount': numQuestions]
 
         render responseData as JSON
     }
@@ -42,6 +45,7 @@ class BucketController {
     def getQuestion(){
         String codeword = request.JSON["codeword"]
         String question
+        int numQuestions = 0
         if(codeword == null || codeword.isEmpty()){
             question = "Error: no codeword given."
         } else {
@@ -52,6 +56,7 @@ class BucketController {
                     question = q.questionText
                     b.removeFromQuestions(q)
                     q.delete()
+                    numQuestions = b.questions.size()
                 } else {
                     question = "There aren't any questions in this bucket. Use the form below to create more!"
                 }
@@ -60,7 +65,7 @@ class BucketController {
             }
         }
 
-        def responseData = ['question': question]
+        def responseData = ['question': question, 'questionCount': numQuestions]
 
         render responseData as JSON
     }
