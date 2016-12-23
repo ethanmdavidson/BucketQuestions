@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>Bucket</title>
+    <title>Bucket ${codeword}</title>
     <asset:stylesheet src="application.css"/>
     <asset:javascript src="jquery-2.2.0.min.js"/>
 </head>
@@ -21,5 +21,39 @@
 <textarea id="newQuestionText">
 </textarea> <br>
 <button id="submitQuestion">Submit This question</button>
+<script>
+    var currentQuestion = $("#currentQuestion");
+    $("#getNextQuestion").click(function(){
+        $.ajax({
+            url:"/getQuestion",
+            method:"POST",
+            data: JSON.stringify({codeword: "${codeword}"}),
+            contentType: "application/json",
+            error: function () {
+                currentQuestion.text("Error retrieving question :(");
+            },
+            success: function (data) {
+                currentQuestion.text(data.question);
+            }
+        });
+    });
+
+    $("#submitQuestion").click(function(){
+        var questionText = $("#newQuestionText").val();
+        $("#newQuestionText").val("");
+        $.ajax({
+            url:"/addQuestion",
+            method:"POST",
+            data: JSON.stringify({codeword: "${codeword}", questionText: questionText}),
+            contentType: "application/json",
+            error: function () {
+                //todo: provide feedback to user
+            },
+            success: function () {
+                //todo: provide feedback to user
+            }
+        });
+    });
+</script>
 </body>
 </html>

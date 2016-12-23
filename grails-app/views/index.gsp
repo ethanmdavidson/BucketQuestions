@@ -3,7 +3,7 @@
 <head>
     <title>Bucket Questions</title>
 
-    <asset:link rel="icon" href="favicon.ico" type="image/x-ico" />
+    <asset:stylesheet src="application.css"/>
     <asset:javascript src="jquery-2.2.0.min.js"/>
 </head>
 <body>

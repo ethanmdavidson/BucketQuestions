@@ -10,8 +10,8 @@ class UrlMappings {
         }
 
         "/bucket/$codeword"(controller: "bucket", action: "index")
-        "/bucket/$codeword/addQuestion"(controller: "bucket", action: "addQuestion")
-        "/bucket/$codeword/getQuestion"(controller: "bucket", action: "getQuestion")
+        "/addQuestion"(controller: "bucket", action: "addQuestion")
+        "/getQuestion"(controller: "bucket", action: "getQuestion")
 
         "/"(view:"/index")
         "500"(view:'/error')
