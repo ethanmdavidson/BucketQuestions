@@ -53,7 +53,7 @@ class BucketController {
                     b.removeFromQuestions(q)
                     q.delete()
                 } else {
-                    question = "There aren't any questions in this bucket yet."
+                    question = "There aren't any questions in this bucket. Use the form below to create more!"
                 }
             } else {
                 question = "Error: no bucket found for this codeword."

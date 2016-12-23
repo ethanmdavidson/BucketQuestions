@@ -8,13 +8,10 @@
 </head>
 <body>
 
-    <div id="content" role="main">
-        <section class="row colset-2-its">
-
-            <label for="codeword">Code word: </label>
-            <input id="codeword" type="text"/>
-            <button id="goToBucket">Join Bucket</button>
-        </section>
+    <div id="content" role="main" class="text-center">
+        <label for="codeword">Code word: </label>
+        <input id="codeword" type="text"/><br><br>
+        <button id="goToBucket">Join Bucket</button>
     </div>
     <script>
         $("#goToBucket").click(function(){

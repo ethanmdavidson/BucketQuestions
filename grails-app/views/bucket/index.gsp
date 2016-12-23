@@ -14,6 +14,7 @@
 </head>
 
 <body>
+<div id="content" role="main" class="text-center">
 <div id="currentQuestion">Click the button below to get your next question.</div><br>
 <button id="getNextQuestion">Next Question</button><br>
 <br>
@@ -21,6 +22,11 @@
 <textarea id="newQuestionText">
 </textarea> <br>
 <button id="submitQuestion">Submit This question</button>
+<br><br>
+The codeword for this room is <b>${codeword}</b>.<br>
+<a href="${createLink(uri:"/")}">Click Here</a> to return to the homepage.
+</div>
+
 <script>
     var currentQuestion = $("#currentQuestion");
     $("#getNextQuestion").click(function(){
