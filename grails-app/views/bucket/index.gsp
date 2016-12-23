@@ -9,6 +9,8 @@
 <html>
 <head>
     <title>Bucket</title>
+    <asset:stylesheet src="application.css"/>
+    <asset:javascript src="jquery-2.2.0.min.js"/>
 </head>
 
 <body>
