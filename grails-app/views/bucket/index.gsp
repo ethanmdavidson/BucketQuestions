@@ -39,7 +39,7 @@
         $.ajax({
             url:"/getQuestion",
             method:"POST",
-            data: JSON.stringify({codeword: "${codeword}"}),
+            data: JSON.stringify({codeword: "${codeword}", userId: "${userId}"}),
             contentType: "application/json",
             error: function () {
                 currentQuestion.text("Error retrieving question :(");
@@ -57,7 +57,7 @@
         $.ajax({
             url:"/addQuestion",
             method:"POST",
-            data: JSON.stringify({codeword: "${codeword}", questionText: questionText}),
+            data: JSON.stringify({codeword: "${codeword}", userId: "${userId}", questionText: questionText}),
             contentType: "application/json",
             error: function () {
                 //todo: provide feedback to user
