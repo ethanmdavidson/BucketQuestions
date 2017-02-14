@@ -25,9 +25,9 @@ environments:
     production:
         dataSource:
             dbCreate: update
-            url: jdbc:mysql://aa1fihimw775pcx.c39hjmoelsko.us-west-2.rds.amazonaws.com:3306/ebdb?user=root&password=rootbqpassword
-            username: root
-            password: rootbqpassword
+            url: jdbc:${JDBC_CONNECTION_STRING}/ebdb?user=${DB_USERNAME}&password=${DB_PASSWORD}
+            username: ${DB_USERNAME}
+            password: ${DB_PASSWORD}
             driverClassName: com.mysql.jdbc.Driver
             properties:
                 jmxEnabled: true

@@ -18,6 +18,7 @@ class BucketController {
             b.save()
             userId = 0
         } else {
+            b.lock()
             userId = b.userId   //todo: save userId in a cookie and check that cookie before giving them a new one
             b.setUserId(b.userId+1)
             b.save()
