@@ -59,6 +59,7 @@ class BucketController {
         } else {
             Bucket b = Bucket.findByCodeword(codeword)
             if (b != null) {
+                b.lock()
                 if (b.questions.size() > 0) {
                     def validQuestions = b.questions.findAll {it.createdBy != userId}
                     if(validQuestions.size() > 0) {
@@ -73,6 +74,7 @@ class BucketController {
                 } else {
                     question = "There aren't any questions in this bucket. Use the form below to create more!"
                 }
+                b.save()
             } else {
                 question = "Error: no bucket found for this codeword."
             }
