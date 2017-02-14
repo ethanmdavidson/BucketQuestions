@@ -15,9 +15,10 @@
 
 <body>
 <div id="content" role="main" class="text-center">
+    <br>
     <div id="currentQuestion">Click the button below to get your next question.</div><br>
     <button id="getNextQuestion">Next Question</button><br>
-    There are <b id="questionCount">${bucket.questions.size()}</b> questions left in this bucket.
+    There are <b id="questionCount">${bucket.questions?.size() ?: 0}</b> questions left in this bucket.
     <br>
     <h1>Submit a new question</h1>
     <textarea id="newQuestionText">

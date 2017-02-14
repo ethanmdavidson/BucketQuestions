@@ -9,6 +9,7 @@
 <body>
 
     <div id="content" role="main" class="text-center">
+        <br><br>
         <label for="codeword">Code word: </label>
         <input id="codeword" type="text"/><br><br>
         <button id="goToBucket">Join Bucket</button>

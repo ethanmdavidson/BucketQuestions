@@ -53,7 +53,7 @@ class BucketController {
             if (b != null) {
                 if (b.questions.size() > 0) {
                     Question q = b.questions[rand.nextInt(b.questions.size())] as Question
-                    question = q.questionText
+                    question = "Current Question: " + q.questionText
                     b.removeFromQuestions(q)
                     q.delete()
                     numQuestions = b.questions.size()
