@@ -17,12 +17,13 @@
 <div id="content" role="main" class="text-center">
     <br>
     <div id="currentQuestion">Click the button below to get your next question.</div><br>
-    <button id="getNextQuestion">Next Question</button><br>
+    <button id="getNextQuestion">Next Question</button>
+    <button id="putQuestionBack" hidden>Mulligan</button>
+    <br>
     There are <b id="questionCount">${bucket.questions?.size() ?: 0}</b> questions left in this bucket.
     <br>
     <h1>Submit a new question</h1>
-    <textarea id="newQuestionText">
-    </textarea> <br>
+    <textarea id="newQuestionText" autofocus></textarea> <br>
     <button id="submitQuestion">Submit</button>
     <br><br>
     The codeword for this bucket is <b>${codeword}</b>.<br>
@@ -30,30 +31,36 @@
 </div>
 
 <script>
+    var currentQuestion = $("#currentQuestion");
+    var putQuestionBack = $("#putQuestionBack");
+
     function updateQuestionCount(data){
         $("#questionCount").text(data.questionCount)
     }
 
-    var currentQuestion = $("#currentQuestion");
-    $("#getNextQuestion").click(function(){
+    function getQuestion(){
         $.ajax({
             url:"/getQuestion",
             method:"POST",
             data: JSON.stringify({codeword: "${codeword}", userId: "${userId}"}),
             contentType: "application/json",
-            error: function () {
-                currentQuestion.text("Error retrieving question :(");
+            error: function (xhr, status, errorText) {
+                currentQuestion.text("Error retrieving question (" + status + ": " + errorText + ")");
+                putQuestionBack.hide();
             },
             success: function (data) {
                 currentQuestion.text(data.question);
-                updateQuestionCount(data)
+                updateQuestionCount(data.questionCount);
+                if (data.success) {
+                    putQuestionBack.show();
+                } else {
+                    putQuestionBack.hide();
+                }
             }
         });
-    });
+    }
 
-    $("#submitQuestion").click(function(){
-        var questionText = $("#newQuestionText").val();
-        $("#newQuestionText").val("");
+    function submitQuestion(questionText){
         $.ajax({
             url:"/addQuestion",
             method:"POST",
@@ -66,6 +73,21 @@
                 updateQuestionCount(data)
             }
         });
+    }
+
+    $("#getNextQuestion").click(function(){
+        getQuestion();
+    });
+
+    $("#submitQuestion").click(function(){
+        var newQuestionText = $("#newQuestionText").val();
+        $("#newQuestionText").val("");
+        submitQuestion(newQuestionText);
+    });
+
+    putQuestionBack.click(function(){
+       submitQuestion(currentQuestion.val());
+       getQuestion();
     });
 </script>
 </body>

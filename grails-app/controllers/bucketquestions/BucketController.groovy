@@ -53,7 +53,9 @@ class BucketController {
     def getQuestion(){
         String codeword = request.JSON["codeword"]
         String userId = request.JSON["userId"]
+        boolean success = false
         String question
+
         int numQuestions = 0
         if(codeword == null || codeword.isEmpty()){
             question = "Error: no codeword given."
@@ -66,6 +68,7 @@ class BucketController {
                     if(validQuestions.size() > 0) {
                         Question q = validQuestions[rand.nextInt(b.questions.size())] as Question
                         question = "Current Question: " + q.questionText
+                        success = true
                         b.removeFromQuestions(q)
                         q.delete()
                     } else {
@@ -81,7 +84,7 @@ class BucketController {
             }
         }
 
-        def responseData = ['question': question, 'questionCount': numQuestions]
+        def responseData = ['success': success, 'question': question, 'questionCount': numQuestions]
 
         render responseData as JSON
     }

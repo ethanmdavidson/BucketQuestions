@@ -11,7 +11,7 @@
     <div id="content" role="main" class="text-center">
         <br><br>
         <label for="codeword">Code word: </label>
-        <input id="codeword" type="text"/><br><br>
+        <input id="codeword" type="text" autofocus/><br><br>
         <button id="goToBucket">Join Bucket</button>
     </div>
     <script>
