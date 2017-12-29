@@ -134,8 +134,8 @@
     <orderEntry type="library" name="Gradle: org.grails:grails-web-gsp:3.1.8" level="project" />
     <orderEntry type="library" name="Gradle: org.grails:grails-web-databinding:3.1.8" level="project" />
     <orderEntry type="library" name="Gradle: org.grails:grails-web-url-mappings:3.1.8" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.google.javascript:closure-compiler:v20151015" level="project" />
     <orderEntry type="library" name="Gradle: org.grails:grails-web-jsp:3.1.8" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.google.javascript:closure-compiler:v20151015" level="project" />
     <orderEntry type="library" name="Gradle: org.grails:grails-web-mvc:3.1.8" level="project" />
     <orderEntry type="library" name="Gradle: org.grails:grails-web-sitemesh:3.1.8" level="project" />
     <orderEntry type="library" name="Gradle: org.grails:grails-async:3.1.8" level="project" />

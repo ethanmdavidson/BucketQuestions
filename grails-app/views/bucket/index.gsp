@@ -11,6 +11,7 @@
     <title>Bucket ${codeword}</title>
     <asset:stylesheet src="application.css"/>
     <asset:javascript src="jquery-2.2.0.min.js"/>
+    <asset:javascript src="jquery.ba-throttle-debounce.min.js"/>
 </head>
 
 <body>
@@ -18,7 +19,7 @@
     <br>
     <div id="currentQuestion">Click the button below to get your next question.</div><br>
     <button id="getNextQuestion">Next Question</button>
-    <button id="putQuestionBack" hidden>Mulligan</button>
+    <button id="putQuestionBack" hidden>Put This One Back</button>
     <br>
     There are <b id="questionCount">${bucket.questions?.size() ?: 0}</b> questions left in this bucket.
     <br>
@@ -34,8 +35,8 @@
     var currentQuestion = $("#currentQuestion");
     var putQuestionBack = $("#putQuestionBack");
 
-    function updateQuestionCount(data){
-        $("#questionCount").text(data.questionCount)
+    function updateQuestionCount(count){
+        $("#questionCount").text(count)
     }
 
     function getQuestion(){
@@ -68,16 +69,17 @@
             contentType: "application/json",
             error: function () {
                 //todo: provide feedback to user
+                //alert("error adding question");
             },
             success: function (data) {
-                updateQuestionCount(data)
+                updateQuestionCount(data.questionCount)
             }
         });
     }
 
-    $("#getNextQuestion").click(function(){
+    $("#getNextQuestion").click($.throttle( 1000, true, function(){
         getQuestion();
-    });
+    }));
 
     $("#submitQuestion").click(function(){
         var newQuestionText = $("#newQuestionText").val();
@@ -86,7 +88,7 @@
     });
 
     putQuestionBack.click(function(){
-       submitQuestion(currentQuestion.val());
+       submitQuestion(currentQuestion.text());
        getQuestion();
     });
 </script>

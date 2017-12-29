@@ -67,7 +67,7 @@ class BucketController {
                     def validQuestions = b.questions.findAll {it.createdBy != userId}
                     if(validQuestions.size() > 0) {
                         Question q = validQuestions[rand.nextInt(b.questions.size())] as Question
-                        question = "Current Question: " + q.questionText
+                        question = q.questionText
                         success = true
                         b.removeFromQuestions(q)
                         q.delete()
