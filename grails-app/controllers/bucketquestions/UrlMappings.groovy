@@ -10,6 +10,7 @@ class UrlMappings {
         }
 
         "/bucket/$codeword"(controller: "bucket", action: "index")
+        "/cheat/$codeword"(controller: "bucket", action: "cheat")
         "/addQuestion"(controller: "bucket", action: "addQuestion")
         "/getQuestion"(controller: "bucket", action: "getQuestion")
 

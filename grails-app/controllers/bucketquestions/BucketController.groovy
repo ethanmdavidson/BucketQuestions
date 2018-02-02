@@ -88,4 +88,19 @@ class BucketController {
 
         render responseData as JSON
     }
+
+    def cheat(String codeword){
+        if(codeword == null || codeword.isEmpty()) {
+            //if no codeword is given redirect to main index
+            redirect(uri:"/")
+        }
+
+        Bucket b = Bucket.findByCodeword(codeword)
+
+        if(b == null){
+            redirect(uri:"/")
+        }
+
+        render(view:"cheat", model:[bucket:b, codeword:codeword])
+    }
 }
