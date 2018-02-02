@@ -9,7 +9,7 @@
 <body>
     <ul>
         <g:each in="${(buckets)}" var="bucket">
-            <li><span class="Collapsable">${bucket.codeword}</span>
+            <li><span class="Collapsable">${bucket.codeword} (${bucket.questions.size()}:${bucket.userId})</span>
                 <ul>
                 <g:each in="${(bucket.questions.toList())}" var="q">
                     <li><span class="Collapsable">${q.createdBy}: ${q.questionText}</span></li>

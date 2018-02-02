@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.id="BucketQuestions:main" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="bucketquestions" external.system.module.type="sourceSet" external.system.module.version="0.4" type="JAVA_MODULE" version="4">
+<module external.linked.project.id="BucketQuestions:main" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="bucketquestions" external.system.module.type="sourceSet" external.system.module.version="0.5" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="Spring" name="Spring">
       <configuration />
     </facet>
-    <facet type="web" name="Web Gradle : BucketQuestions-0.4.war">
+    <facet type="web" name="Web Gradle : BucketQuestions-0.5.war">
       <configuration>
         <webroots>
           <root url="file://C:\Users\Ethan\IdeaProjects\BucketQuestions\src\main\webapp" relative="/" />
@@ -134,8 +134,8 @@
     <orderEntry type="library" name="Gradle: org.grails:grails-web-gsp:3.1.8" level="project" />
     <orderEntry type="library" name="Gradle: org.grails:grails-web-databinding:3.1.8" level="project" />
     <orderEntry type="library" name="Gradle: org.grails:grails-web-url-mappings:3.1.8" level="project" />
-    <orderEntry type="library" name="Gradle: org.grails:grails-web-jsp:3.1.8" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: com.google.javascript:closure-compiler:v20151015" level="project" />
+    <orderEntry type="library" name="Gradle: org.grails:grails-web-jsp:3.1.8" level="project" />
     <orderEntry type="library" name="Gradle: org.grails:grails-web-mvc:3.1.8" level="project" />
     <orderEntry type="library" name="Gradle: org.grails:grails-web-sitemesh:3.1.8" level="project" />
     <orderEntry type="library" name="Gradle: org.grails:grails-async:3.1.8" level="project" />
